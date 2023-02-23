@@ -30,8 +30,23 @@ const createDocument=async()=>{
             author:"Pravinya kumbhare",
             active:true,
         })
-        const result=await reactPlayList.save();
+        const mongodbPlayList=new Playlist({
+                name:"Mongodb",
+                ctype:"Database",
+                videos:110,
+                author:"Pravinya kumbhare",
+                active:true,
+        })
+        const mongoosePlayList=new Playlist({
+                name:"Mongoose",
+                ctype:"Database",
+                videos:100,
+                author:"Pravinya kumbhare",
+                active:true,
+        })
+        const result=await Playlist.insertMany([reactPlayList,mongodbPlayList,mongoosePlayList]);
         console.log(result);
+        console.log("This is beyond the imagination...");
     }
     catch(err){
         console.log(err);
